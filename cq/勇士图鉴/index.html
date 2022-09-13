@@ -38,6 +38,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 5px;
     padding: 8px 0px 12px 0px;
+    cursor: pointer;
 }
 .勇士 p {
     margin: 2px;
@@ -162,7 +163,8 @@ for (const 勇士 of 勇士列表) {
     for (const nn of 勇士.昵称) {
         nick += nn + "&nbsp";
     }
-    content += '<div class="勇士"><div class="勇士分类"><img class="职业卷型分类图片" src="' + 职业图片.get(勇士.职业) +
+    let click = "window.open('"+ 勇士.Link +"')";
+    content += '<div class="勇士" onclick="' + click + '"><div class="勇士分类"><img class="职业卷型分类图片" src="' + 职业图片.get(勇士.职业) +
         '" alt="">&nbsp&nbsp<img class="职业卷型分类图片" src="' + 卷型图片.get(勇士.卷型) +
         '" alt=""></div><img class="勇士图片" src="' + 勇士.Img +
         '" alt=""><p class="所属势力"><img class="势力图片" src="' + 势力图片.get(勇士.势力) +'" alt="">' + 势力文本.get(勇士.势力) +

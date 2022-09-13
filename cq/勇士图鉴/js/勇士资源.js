@@ -45,7 +45,7 @@ var 勇士列表 = [
     {
         Name : "蕾文·布兰温",
         Img : "https://patchwiki.biligame.com/images/cq/2/29/dd4f84snz1rwr170htmjj2bii2cu23h.png",
-        Link : "",
+        Link : "https://wiki.biligame.com/cq/%E8%95%BE%E6%96%87%C2%B7%E5%B8%83%E5%85%B0%E6%B8%A9",
         卷型 : 黑卷,
         职业 : 剑,
         势力 : 支援所有势力,

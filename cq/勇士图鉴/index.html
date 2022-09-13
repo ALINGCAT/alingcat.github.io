@@ -7,6 +7,7 @@
         <style>
 body {
     display: flex;
+    flex-direction: column;
 }
 .tags {
     flex-direction: column;
@@ -26,6 +27,43 @@ body {
     font-size: large;
     position: relative;
     top: 3px;
+}
+#勇士列表 {
+    display: flex;
+    flex-direction: row;
+}
+.勇士 {
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 5px;
+    padding: 8px 0px 12px 0px;
+}
+.勇士 p {
+    margin: 2px;
+}
+.职业卷型分类图片 {
+    width: 20px;
+}
+.勇士图片 {
+    width: 150px;
+}
+.所属势力 {
+    color: darkgray;
+    font-size: xx-small;
+}
+.势力图片 {
+    width: 16px;
+    position: relative;
+    top: -1px;
+    left: -1px;
+}
+.勇士名 {
+    font-weight: bold;
+}
+.勇士昵称 {
+    color: gray;
+    font-size: small;
 }
         </style>
     </head>
@@ -49,7 +87,7 @@ body {
                     <img class="tag_img" src="https://patchwiki.biligame.com/images/cq/a/a4/4ppk96n7abwz5hex4k74w43uo2aeat8.png" alt="">&nbsp&nbsp法师
                 </button>
                 <button type="button" class="btn btn-outline-secondary">
-                    <img class="tag_img" src="	https://patchwiki.biligame.com/images/cq/7/73/nj2axmstgqvzchluw1vjcb1s4z1uwy6.png" alt="">&nbsp&nbsp祭祀
+                    <img class="tag_img" src="https://patchwiki.biligame.com/images/cq/7/73/nj2axmstgqvzchluw1vjcb1s4z1uwy6.png" alt="">&nbsp&nbsp祭祀
                 </button>
             </div>
             <div class="select_tag">
@@ -113,6 +151,24 @@ body {
                 </button>
             </div>
         </div>
+        <div id="勇士列表"></div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script src="./js/勇士资源.js"></script>
+        <script>
+var htmlContent = document.getElementById("勇士列表");
+var content = '';
+for (const 勇士 of 勇士列表) {
+    let nick = '&nbsp';
+    for (const nn of 勇士.昵称) {
+        nick += nn + "&nbsp";
+    }
+    content += '<div class="勇士"><div class="勇士分类"><img class="职业卷型分类图片" src="' + 职业图片.get(勇士.职业) +
+        '" alt="">&nbsp&nbsp<img class="职业卷型分类图片" src="' + 卷型图片.get(勇士.卷型) +
+        '" alt=""></div><img class="勇士图片" src="' + 勇士.Img +
+        '" alt=""><p class="所属势力"><img class="势力图片" src="' + 势力图片.get(勇士.势力) +'" alt="">' + 势力文本.get(勇士.势力) +
+        '</p><p class="勇士名">' + 勇士.Name + '</p><p class="勇士昵称">' + nick + '</p></div>';
+}
+htmlContent.innerHTML = content;
+        </script>
     </body>
 </html>
